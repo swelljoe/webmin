@@ -6,7 +6,7 @@ use strict;
 use warnings;
 no warnings 'redefine';
 no warnings 'uninitialized';
-require './acl-lib.pl';    ## no critic
+require './acl-lib.pl';
 our (%in, %text, %config, %access, %sessiondb);
 &ReadParse();
 $access{'sessions'} || &error($text{'sessions_ecannot'});

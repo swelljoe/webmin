@@ -3,7 +3,7 @@ use strict;
 use warnings;
 no warnings 'redefine';
 no warnings 'uninitialized';
-require 'acl-lib.pl';    ## no critic
+require 'acl-lib.pl';
 our ($config_directory, %gconfig);
 
 # backup_config_files()
@@ -43,7 +43,7 @@ return @rv;
 # Called before the files are actually read
 sub pre_backup
 {
-return;
+return undef;
 }
 
 # post_backup(&files)
@@ -52,7 +52,7 @@ sub post_backup
 {
 unlink("$config_directory/config.aclbackup");
 unlink("$config_directory/miniserv.conf.aclbackup");
-return;
+return undef;
 }
 
 # pre_restore(&files)
@@ -66,7 +66,7 @@ foreach my $u (&list_users(), &list_groups()) {
 		       glob("$config_directory/*/$u->{'name'}.acl"));
 		}
 	}
-return;
+return undef;
 }
 
 # post_restore(&files)
@@ -101,7 +101,7 @@ foreach my $k (keys %aclbackup) {
 &put_miniserv_config(\%miniserv);
 
 &restart_miniserv();
-return;
+return undef;
 }
 
 1;

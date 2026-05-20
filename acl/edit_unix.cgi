@@ -7,7 +7,7 @@ use strict;
 use warnings;
 no warnings 'redefine';
 no warnings 'uninitialized';
-require './acl-lib.pl';    ## no critic
+require './acl-lib.pl';
 our (%in, %text, %config, %access);
 $access{'unix'} && $access{'create'} && $access{'delete'} ||
 	&error($text{'unix_ecannot'});

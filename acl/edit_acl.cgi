@@ -6,7 +6,7 @@ use strict;
 use warnings;
 no warnings 'redefine';
 no warnings 'uninitialized';
-require './acl-lib.pl';    ## no critic
+require './acl-lib.pl';
 our (%in, %text, %config, %access, $base_remote_user, %gconfig);
 &ReadParse();
 $access{'acl'} || &error($text{'acl_emod'});

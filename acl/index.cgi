@@ -6,7 +6,7 @@ use strict;
 use warnings;
 no warnings 'redefine';
 no warnings 'uninitialized';
-require './acl-lib.pl';    ## no critic
+require './acl-lib.pl';
 our (%in, %text, %config, %gconfig, %access, $base_remote_user);
 &ReadParse();
 &ui_print_header(undef, $text{'index_title'}, "", undef, 1, 1);
